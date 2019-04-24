@@ -8,6 +8,7 @@ import org.courses.domain.hbm.Manufacture;
 import org.courses.domain.hbm.Material;
 import org.courses.domain.hbm.Socks;
 import org.courses.domain.hbm.SocksType;
+import org.courses.web.rest.services.TestService;
 import org.courses.web.soap.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
@@ -84,7 +85,7 @@ public class SpringConfig {
 
     //REST////////////////////////////////////////////////////////////
     @Bean
-    public org.courses.web.rest.TestService restTestService() {
-        return new org.courses.web.rest.TestService();
+    public TestService restTestService() {
+        return new TestService();
     }
 }

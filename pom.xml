@@ -14,8 +14,6 @@
     <packaging>pom</packaging>
 	
 	<modules>
-		<!--<module>console</module>-->
-        <module>core</module>
         <module>web</module>
     </modules>
 

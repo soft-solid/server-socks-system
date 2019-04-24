@@ -1,4 +1,4 @@
-package org.courses.web.rest;
+package org.courses.web.rest.services;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,4 +14,6 @@ public class TestService {
                  HttpStatus.BAD_REQUEST : HttpStatus.OK ;
         return new ResponseEntity(connectionString,status);
     }
+
+
 }
