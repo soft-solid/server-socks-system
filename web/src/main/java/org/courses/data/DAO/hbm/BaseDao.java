@@ -1,11 +1,15 @@
 package org.courses.data.DAO.hbm;
 
 import org.courses.data.DAO.DAO;
+import org.courses.domain.hbm.sqliteconvertion.DateConverter;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.joda.time.DateTime;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.List;
 
 public abstract class BaseDao<TEntity, TKey> implements DAO<TEntity, TKey> {
     protected Class<TEntity> entityType;
@@ -26,11 +30,16 @@ public abstract class BaseDao<TEntity, TKey> implements DAO<TEntity, TKey> {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Collection<TEntity> readAll() {
-        String query = String.format("from %s", entityType.getSimpleName());
+
         Session session = factory.getCurrentSession();
+        String query = String.format("from %s", entityType.getName());
         return session
                 .createQuery(query)
                 .list();
+
+//        SQLQuery q = session.createSQLQuery("select * from Storage");
+//
+//        return  q.list();
     }
 
     @Override

@@ -2,10 +2,11 @@ package org.courses.data.DAO.hbm;
 
 import org.courses.domain.hbm.Storage;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
-
-public class StorageDao extends BaseDao<Storage, Integer> {
+@Repository
+public class StorageDao extends UnNamedBaseDao<Storage, Integer> {
     public StorageDao(SessionFactory factory) {
         super(factory, Storage.class);
     }

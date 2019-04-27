@@ -22,8 +22,8 @@ public class Program implements WebApplicationInitializer {
         cxfRegistration.setLoadOnStartup(1);
         cxfRegistration.addMapping("/soap/*");
 
-//        ServletRegistration.Dynamic dispatcherRegistration = servletContext.addServlet("app", new DispatcherServlet(context));
-//        dispatcherRegistration.setLoadOnStartup(2);
-//        dispatcherRegistration.addMapping("/rest/*");
+        ServletRegistration.Dynamic dispatcherRegistration = servletContext.addServlet("app", new DispatcherServlet(context));
+        dispatcherRegistration.setLoadOnStartup(2);
+        dispatcherRegistration.addMapping("/rest/*");
     }
 }

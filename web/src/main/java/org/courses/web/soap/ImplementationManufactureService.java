@@ -1,10 +1,12 @@
 package org.courses.web.soap;
 
 import org.courses.data.DAO.NamedDao;
+import org.courses.data.DAO.hbm.ManufactureDao;
 import org.courses.domain.hbm.Manufacture;
 
 import javax.jws.WebService;
 import java.util.Collection;
+import java.util.Hashtable;
 
 @WebService(
         endpointInterface = "org.courses.web.soap.ManufactureService",
@@ -12,34 +14,22 @@ import java.util.Collection;
 )
 public class ImplementationManufactureService implements ManufactureService {
 
-    NamedDao<Manufacture, Integer> dao;
+    ManufactureDao dao;
     public ImplementationManufactureService(NamedDao<Manufacture, Integer> dao)
     {
-        this.dao = dao;
+        this.dao = (ManufactureDao)dao;
     }
 
     @Override
-    public void save(Collection<Manufacture> entity) {
-        dao.save(entity);
+    public Hashtable<String, Integer> Save(Collection<Manufacture> entities) {
+        return dao.save(entities);
     }
 
     @Override
-    public Manufacture read(int id) {
-        return dao.read(id);
-    }
+    public Collection<Manufacture> ReadAll() { return dao.readAll(); }
 
     @Override
-    public Collection<Manufacture> readAll() {
-        return dao.readAll();
-    }
-
-    @Override
-    public Collection<Manufacture> find(String filter) {
-        return dao.find(filter);
-    }
-
-    @Override
-    public void delete(int id) {
-        dao.delete(id);
+    public void Deactivate(Collection<Integer> entities) {
+        dao.Deactivate(entities);
     }
 }

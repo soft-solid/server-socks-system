@@ -4,6 +4,7 @@ import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.courses.data.DAO.NamedDao;
 import org.courses.data.DAO.UnNamedDao;
+import org.courses.data.DAO.hbm.StorageDao;
 import org.courses.domain.hbm.Manufacture;
 import org.courses.domain.hbm.Material;
 import org.courses.domain.hbm.Socks;
@@ -27,8 +28,10 @@ public class SpringConfig {
     NamedDao<Material, Integer> materialDao;
     @Autowired
     NamedDao<Manufacture, Integer> manufactureDao;
-    @Autowired
-    UnNamedDao<Socks, Integer> socksDao;
+//    @Autowired
+//    UnNamedDao<Socks, Integer> socksDao;
+
+
 
     @Bean
     public SpringBus cxf() {
@@ -50,10 +53,10 @@ public class SpringConfig {
         return new ImplementationManufactureService(manufactureDao);
     }
 
-    @Bean
-    public SocksService soapSocksService() {
-        return new ImplementationSocksService(socksDao);
-    }
+//    @Bean
+//    public SocksService soapSocksService() {
+//        return new ImplementationSocksService(socksDao);
+//    }
 
     @Bean
     public Endpoint typeEndpoint() {
@@ -76,16 +79,18 @@ public class SpringConfig {
         return endpoint;
     }
 
-    @Bean
-    public Endpoint SocksEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(cxf(), soapSocksService());
-        endpoint.publish("/socksservice");
-        return endpoint;
-    }
+//    @Bean
+//    public Endpoint SocksEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(cxf(), soapSocksService());
+//        endpoint.publish("/socksservice");
+//        return endpoint;
+//    }
 
     //REST////////////////////////////////////////////////////////////
     @Bean
     public TestService restTestService() {
         return new TestService();
     }
+
+
 }

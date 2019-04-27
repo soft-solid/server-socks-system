@@ -1,5 +1,6 @@
 package org.courses.domain.hbm;
 
+import org.courses.data.DAO.hbm.EntityWithID;
 import org.courses.domain.hbm.sqliteconvertion.DateConverter;
 import org.joda.time.DateTime;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Storage")
-public class Storage {
+public class Storage implements EntityWithID{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")

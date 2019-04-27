@@ -5,16 +5,19 @@ import javax.jws.WebService;
 import org.courses.domain.hbm.Material;
 
 import java.util.Collection;
+import java.util.Hashtable;
 
 @WebService
 public interface MaterialService {
-    void save(Collection<Material> entity);
+    Hashtable<String, Integer> Save(Collection<Material> entities);
 
-    Material read(int id);
+    //SocksType Read(int id);
 
-    Collection<Material> readAll();
+    Collection<Material> ReadAll();
 
-    Collection<Material> find(String filter);
+    //Collection<SocksType> Find(String filter);
 
-    void delete(int id);
+    //void Delete(int id);
+
+    void Deactivate(Collection<Integer> ArrayID);
 }

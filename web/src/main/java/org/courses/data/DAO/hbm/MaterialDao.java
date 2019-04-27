@@ -4,6 +4,8 @@ import org.apache.commons.validator.routines.IntegerValidator;
 import org.courses.domain.hbm.Material;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
@@ -24,5 +26,15 @@ public class MaterialDao extends NamedBaseDao<Material, Integer> {
                 .setParameter("id", Int32.validate(filter))
                 .setParameter("filter", String.format("%%%s%%", filter))
                 .list();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void Deactivate(Collection<Integer> ArrayID){
+        Session session = factory.getCurrentSession();
+
+        String hql = "UPDATE Material set active = 0 WHERE id in :id";
+        Query query = session.createQuery(hql);
+        query.setParameterList("id",ArrayID);
+        query.executeUpdate();
     }
 }

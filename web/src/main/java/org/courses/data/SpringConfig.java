@@ -2,10 +2,7 @@ package org.courses.data;
 
 import org.courses.data.DAO.NamedDao;
 import org.courses.data.DAO.UnNamedDao;
-import org.courses.data.DAO.hbm.ManufactureDao;
-import org.courses.data.DAO.hbm.MaterialDao;
-import org.courses.data.DAO.hbm.SocksDao;
-import org.courses.data.DAO.hbm.TypeDao;
+import org.courses.data.DAO.hbm.*;
 import org.courses.domain.hbm.*;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,5 +87,10 @@ public class SpringConfig {
     @Bean
     public UnNamedDao<Socks, Integer> socksDao() {
         return new SocksDao(sessionFactory);
+    }
+
+    @Bean
+    public UnNamedDao<Storage, Integer> storageDao() {
+        return  new StorageDao(sessionFactory);
     }
 }

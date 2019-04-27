@@ -37,7 +37,6 @@ public class Socks implements Serializable, EntityWithID {
     private SocksType type;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "socks", targetEntity = Composition.class)
-    //@JoinColumn(name = "socks")
     @XmlElementWrapper(name = "compositions")
     @XmlElement(name = "composition", required = true)
     private List<Composition> composition = new ArrayList<>();

@@ -1,10 +1,12 @@
 package org.courses.web.soap;
 
 import org.courses.data.DAO.NamedDao;
+import org.courses.data.DAO.hbm.MaterialDao;
 import org.courses.domain.hbm.Material;
 
 import javax.jws.WebService;
 import java.util.Collection;
+import java.util.Hashtable;
 
 @WebService(
         endpointInterface = "org.courses.web.soap.MaterialService",
@@ -12,34 +14,22 @@ import java.util.Collection;
 )
 public class ImplementationMaterialService implements MaterialService {
 
-    NamedDao<Material, Integer> dao;
+    MaterialDao dao;
     public ImplementationMaterialService(NamedDao<Material, Integer> dao)
     {
-        this.dao = dao;
+        this.dao = (MaterialDao)dao;
     }
 
     @Override
-    public void save(Collection<Material> entity) {
-        dao.save(entity);
+    public Hashtable<String, Integer> Save(Collection<Material> entities) {
+        return dao.save(entities);
     }
 
     @Override
-    public Material read(int id) {
-        return dao.read(id);
-    }
+    public Collection<Material> ReadAll() { return dao.readAll(); }
 
     @Override
-    public Collection<Material> readAll() {
-        return dao.readAll();
-    }
-
-    @Override
-    public Collection<Material> find(String filter) {
-        return dao.find(filter);
-    }
-
-    @Override
-    public void delete(int id) {
-        dao.delete(id);
+    public void Deactivate(Collection<Integer> entities) {
+        dao.Deactivate(entities);
     }
 }
