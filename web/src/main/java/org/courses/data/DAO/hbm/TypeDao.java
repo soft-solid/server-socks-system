@@ -20,7 +20,7 @@ public class TypeDao extends NamedBaseDao<SocksType, Integer> {
     public Collection<SocksType> find(String filter) {
         Session session = factory.openSession();
         return session
-                .createQuery("from Type " +
+                .createQuery("from SocksType " +
                         "where id = :id " +
                         "or name like :filter")
                 .setParameter("id", Int32.validate(filter))
@@ -32,7 +32,7 @@ public class TypeDao extends NamedBaseDao<SocksType, Integer> {
     public void Deactivate(Collection<Integer> ArrayID){
         Session session = factory.getCurrentSession();
 
-        String hql = "UPDATE Type set active = 0 WHERE id in :id";
+        String hql = "UPDATE SocksType set active = 0 WHERE id in :id";
         Query query = session.createQuery(hql);
         query.setParameterList("id",ArrayID);
         query.executeUpdate();

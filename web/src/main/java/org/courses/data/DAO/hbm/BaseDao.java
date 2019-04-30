@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.joda.time.DateTime;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Table;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,12 +33,14 @@ public abstract class BaseDao<TEntity, TKey> implements DAO<TEntity, TKey> {
     public Collection<TEntity> readAll() {
 
         Session session = factory.getCurrentSession();
-        String query = String.format("from %s", entityType.getName());
+        String query = String.format("from %s", entityType.getSimpleName());
         return session
                 .createQuery(query)
                 .list();
 
-//        SQLQuery q = session.createSQLQuery("select * from Storage");
+//        String query = String.format("select * from %s", entityType.getAnnotation(Table.class).name());
+//        SQLQuery q = session.createSQLQuery(query);//,entityType);\
+//        q.addEntity(entityType);
 //
 //        return  q.list();
     }

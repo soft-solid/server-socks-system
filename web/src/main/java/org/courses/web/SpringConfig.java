@@ -28,8 +28,8 @@ public class SpringConfig {
     NamedDao<Material, Integer> materialDao;
     @Autowired
     NamedDao<Manufacture, Integer> manufactureDao;
-//    @Autowired
-//    UnNamedDao<Socks, Integer> socksDao;
+    @Autowired
+    UnNamedDao<Socks, Integer> socksDao;
 
 
 
@@ -53,10 +53,10 @@ public class SpringConfig {
         return new ImplementationManufactureService(manufactureDao);
     }
 
-//    @Bean
-//    public SocksService soapSocksService() {
-//        return new ImplementationSocksService(socksDao);
-//    }
+    @Bean
+    public SocksService soapSocksService() {
+        return new ImplementationSocksService(socksDao);
+    }
 
     @Bean
     public Endpoint typeEndpoint() {
@@ -79,12 +79,12 @@ public class SpringConfig {
         return endpoint;
     }
 
-//    @Bean
-//    public Endpoint SocksEndpoint() {
-//        EndpointImpl endpoint = new EndpointImpl(cxf(), soapSocksService());
-//        endpoint.publish("/socksservice");
-//        return endpoint;
-//    }
+    @Bean
+    public Endpoint SocksEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(cxf(), soapSocksService());
+        endpoint.publish("/socksservice");
+        return endpoint;
+    }
 
     //REST////////////////////////////////////////////////////////////
     @Bean

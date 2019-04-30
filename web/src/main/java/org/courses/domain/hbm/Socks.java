@@ -1,7 +1,6 @@
 package org.courses.domain.hbm;
 
 import org.courses.data.DAO.hbm.EntityWithID;
-import org.courses.domain.hbm.sqliteconvertion.ColorConverter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,7 +24,6 @@ public class Socks implements Serializable, EntityWithID {
     private double size;
 
     @Column(name = "colour")
-    @Convert(converter = ColorConverter.class)
     private int colour;
 
     @ManyToOne

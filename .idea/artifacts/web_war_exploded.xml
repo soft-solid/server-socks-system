@@ -24,6 +24,8 @@
           <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8.1" />
           <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.16" />
           <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:1.2.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" />
           <element id="library" level="project" name="Maven: org.apache.ws.xmlschema:xmlschema-core:2.2.4" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-xjc:2.3.2" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:xsom:2.3.2" />
@@ -83,10 +85,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.5.RELEASE" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.3" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.3" />
-          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" />
-          <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

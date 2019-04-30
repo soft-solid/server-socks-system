@@ -18,10 +18,7 @@ public class TestService {
 
     @Autowired
     private UnNamedBaseDao<Storage,Integer> storageDao;
-//
-//    public TestService( stDao) {
-//        storageDao =
-//    }
+
 
         @GetMapping(value ="/greeting")
     public ResponseEntity greeting(@RequestParam(value ="connectionstring") String connectionString) {
@@ -38,7 +35,7 @@ public class TestService {
 
     @RequestMapping(value = "/storages",
             method = RequestMethod.GET,
-            produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+            produces = { /*MediaType.APPLICATION_JSON_VALUE,*/ MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public Collection<Storage> getStorages() {
         Collection<Storage> storageCollection = storageDao.readAll();
