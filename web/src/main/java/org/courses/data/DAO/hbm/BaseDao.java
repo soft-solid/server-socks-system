@@ -30,19 +30,17 @@ public abstract class BaseDao<TEntity, TKey> implements DAO<TEntity, TKey> {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Collection<TEntity> readAll() {
+    public Collection<TEntity> readAll(boolean onlyActive) {
 
         Session session = factory.getCurrentSession();
-        String query = String.format("from %s", entityType.getSimpleName());
+        String query;
+        if (onlyActive)//Были разные варианты разграничения этого (новый метод / необязательный пвраметр / вынести в базовый класс), но остановился на этом. Интресно какой наиболее приемлимый?
+            query = String.format("from %s WHERE active = 1", entityType.getSimpleName());
+        else
+            query = String.format("from %s", entityType.getSimpleName());
         return session
                 .createQuery(query)
                 .list();
-
-//        String query = String.format("select * from %s", entityType.getAnnotation(Table.class).name());
-//        SQLQuery q = session.createSQLQuery(query);//,entityType);\
-//        q.addEntity(entityType);
-//
-//        return  q.list();
     }
 
     @Override

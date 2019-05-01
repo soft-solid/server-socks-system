@@ -38,7 +38,7 @@ public class TestService {
             produces = { /*MediaType.APPLICATION_JSON_VALUE,*/ MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public Collection<Storage> getStorages() {
-        Collection<Storage> storageCollection = storageDao.readAll();
+        Collection<Storage> storageCollection = storageDao.readAll(true);
         return storageCollection;
     }
 

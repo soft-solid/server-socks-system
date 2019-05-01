@@ -11,13 +11,7 @@ import java.util.Hashtable;
 public interface MaterialService {
     Hashtable<String, Integer> Save(Collection<Material> entities);
 
-    //SocksType Read(int id);
-
-    Collection<Material> ReadAll();
-
-    //Collection<SocksType> Find(String filter);
-
-    //void Delete(int id);
+    Collection<Material> ReadAll(boolean onlyActive);
 
     void Deactivate(Collection<Integer> ArrayID);
 }

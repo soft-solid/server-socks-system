@@ -26,7 +26,7 @@ public class ImplementationTypeService implements TypeService {
     }
 
     @Override
-    public Collection<SocksType> ReadAll() { return dao.readAll(); }
+    public Collection<SocksType> ReadAll(boolean onlyActive) { return dao.readAll(onlyActive); }
 
     @Override
     public void Deactivate(Collection<Integer> entities) {

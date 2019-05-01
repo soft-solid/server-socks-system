@@ -5,7 +5,7 @@ import java.util.Collection;
 public interface DAO<TEntity, TKey> {
    TEntity read(TKey id);
 
-   Collection<TEntity> readAll();
+   Collection<TEntity> readAll(boolean onlyActive);
 
    Collection<TEntity> find(String filter);
 

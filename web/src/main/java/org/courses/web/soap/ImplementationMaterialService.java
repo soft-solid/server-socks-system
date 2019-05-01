@@ -26,7 +26,7 @@ public class ImplementationMaterialService implements MaterialService {
     }
 
     @Override
-    public Collection<Material> ReadAll() { return dao.readAll(); }
+    public Collection<Material> ReadAll(boolean onlyActive) { return dao.readAll(onlyActive); }
 
     @Override
     public void Deactivate(Collection<Integer> entities) {

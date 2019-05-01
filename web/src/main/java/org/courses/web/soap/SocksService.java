@@ -8,13 +8,13 @@ import java.util.Collection;
 
 @WebService
 public interface SocksService {
-    void save(Collection<Socks> entity);
+    void Save(Collection<Socks> entity);
 
-    Socks read(int id);
+    Socks Read(int id);
 
-    Collection<Socks> readAll();
+    Collection<Socks> ReadAll(boolean onlyActive);
 
-    Collection<Socks> find(String filter);
+    Collection<Socks> Find(String filter);
 
-    void delete(int id);
+    void Delete(int id);
 }

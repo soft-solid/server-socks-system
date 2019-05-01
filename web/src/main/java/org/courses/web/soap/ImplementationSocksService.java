@@ -19,27 +19,25 @@ public class ImplementationSocksService implements SocksService {
     }
 
     @Override
-    public void save(Collection<Socks> entity) {
+    public void Save(Collection<Socks> entity) {
         dao.save(entity);
     }
 
     @Override
-    public Socks read(int id) {
+    public Socks Read(int id) {
         return dao.read(id);
     }
 
     @Override
-    public Collection<Socks> readAll() {
-        return dao.readAll();
-    }
+    public Collection<Socks> ReadAll(boolean onlyActive) { return dao.readAll(onlyActive); }
 
     @Override
-    public Collection<Socks> find(String filter) {
+    public Collection<Socks> Find(String filter) {
         return dao.find(filter);
     }
 
     @Override
-    public void delete(int id) {
+    public void Delete(int id) {
         dao.delete(id);
     }
 }

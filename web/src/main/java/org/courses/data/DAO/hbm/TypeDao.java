@@ -37,4 +37,6 @@ public class TypeDao extends NamedBaseDao<SocksType, Integer> {
         query.setParameterList("id",ArrayID);
         query.executeUpdate();
     }
+
+
 }

@@ -8,7 +8,7 @@ import java.util.Hashtable;
 public interface BaseDictionaryService<TEntity> {
     Hashtable<String, Integer> Save(Collection<TEntity> entities);
 
-    Collection<TEntity> ReadAll();
+    Collection<TEntity> ReadAll(boolean onlyActive);
 
     void Deactivate(Collection<Integer> ArrayID);
 }

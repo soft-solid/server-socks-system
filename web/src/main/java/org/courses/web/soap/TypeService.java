@@ -12,13 +12,7 @@ public interface TypeService /*extends BaseDictionaryService<SocksType> */{
     //очень логичным выглядит вынести в общий интрефейс некоторые функцци. Но при таком обобщенном интерфесе возникает ошибка при десериализации типа на клиенте.
     Hashtable<String, Integer> Save(Collection<SocksType> entities);
 
-    //SocksType Read(int id);
-
-    Collection<SocksType> ReadAll();
-
-    //Collection<SocksType> Find(String filter);
-
-    //void Delete(int id);
+    Collection<SocksType> ReadAll(boolean onlyActive);
 
     void Deactivate(Collection<Integer> ArrayID);
 }

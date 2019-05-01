@@ -11,13 +11,7 @@ import java.util.Hashtable;
 public interface ManufactureService {
     Hashtable<String, Integer> Save(Collection<Manufacture> entities);
 
-    //SocksType Read(int id);
-
-    Collection<Manufacture> ReadAll();
-
-    //Collection<SocksType> Find(String filter);
-
-    //void Delete(int id);
+    Collection<Manufacture> ReadAll(boolean onlyActive);
 
     void Deactivate(Collection<Integer> ArrayID);
 }

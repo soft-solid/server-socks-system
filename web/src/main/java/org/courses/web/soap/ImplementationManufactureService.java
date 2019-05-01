@@ -26,7 +26,7 @@ public class ImplementationManufactureService implements ManufactureService {
     }
 
     @Override
-    public Collection<Manufacture> ReadAll() { return dao.readAll(); }
+    public Collection<Manufacture> ReadAll(boolean onlyActive) { return dao.readAll(onlyActive); }
 
     @Override
     public void Deactivate(Collection<Integer> entities) {
